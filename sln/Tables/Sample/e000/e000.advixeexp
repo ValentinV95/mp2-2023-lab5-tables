@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <rdmgr>
+  <timestamp type="u64_t">1714218663</timestamp>
+  <hostname>DESKTOP-19SKLKB</hostname>
+  <os>windows</os>
+  <product>Intel® Advisor 2023.2</product>
+  <buildNumber type="s32_t">614264</buildNumber>
+  <logicalCPUCount type="s32_t">2</logicalCPUCount>
+  <physicalCoreCount type="s32_t">2</physicalCoreCount>
+  <processorPackageCount type="s32_t">1</processorPackageCount>
+  <CPUFrequency type="s64_t">3312000000</CPUFrequency>
+  <CPUFamily type="s32_t">6</CPUFamily>
+  <CPUModel type="s32_t">94</CPUModel>
+  <CPUStepping type="s32_t">3</CPUStepping>
+  <CPUBrandName>Intel(R) Pentium(R) CPU G4400 @ 3.30GHz</CPUBrandName>
+  <isa>sse4_2</isa>
+ </rdmgr>
+</root>
