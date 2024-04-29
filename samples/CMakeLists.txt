@@ -14,10 +14,8 @@ file(GLOB srcs
 "../src/AVLTreeTable.cpp"
 "../src/HashTable.cpp"
 "../src/poly.cpp" 
-"../src/Test_main.cpp" 
-"../src/Tests.cpp"
 "../src/UnorderedTable.cpp" 
 "../src/Sample.cpp"
 )
 
-add_executable(Sample ${srcs} ${hdrs}${Debug})
+add_executable(tables ${srcs} ${hdrs})

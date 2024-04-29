@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-include_directories(include)
+include_directories(include gtest)
 
 # BUILD
 add_subdirectory(tests)
