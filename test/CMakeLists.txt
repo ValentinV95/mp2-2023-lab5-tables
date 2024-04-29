@@ -1,4 +1,4 @@
-set(target tests)
+set(target tables_test)
 
 file(GLOB srcs "*.cpp")
 file(GLOB hdrs "../include/*.h")
