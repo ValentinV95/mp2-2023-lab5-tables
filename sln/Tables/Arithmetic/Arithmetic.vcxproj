@@ -132,12 +132,12 @@
     <ClInclude Include="..\..\..\include\stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Arithmetic.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Polynoms\Polynoms.vcxproj">
       <Project>{604bc756-5489-4b23-a393-036c0ecb6e2f}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\arithmetic.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

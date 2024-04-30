@@ -5,6 +5,8 @@
 
 AVLTreeTable::Node::Node(std::string name, polynoms pol) {
 	data = std::make_pair(name, pol);
+	left = nullptr;
+	right = nullptr;
 }
 
 
