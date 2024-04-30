@@ -40,11 +40,11 @@ void DoArithmetic(UnorderedTable& table, AVLTreeTable& tree, HashTable& hashtabl
 				cout << "Enter the name of polynom: " << endl;
 				cin >> name;
 				table.add(name, resTable);
-				cout << "UnorderedTable: add. Operations: " << counttable << endl;
+				cout << "UnorderedTable: add. Operations: " << table.counttable << endl;
 				tree.add(name, resTree);
-				cout << "AVLTreeTable: add. Operations: " << counttree << endl;
+				cout << "AVLTreeTable: add. Operations: " << tree.counttree << endl;
 				hashtable.add(name, resHash);
-				cout << "HashTable: add. Operations: " << counthash << endl;
+				cout << "HashTable: add. Operations: " << hashtable.counthash << endl;
 
 			}
 
@@ -91,11 +91,11 @@ int main() {
 		}
 		polynoms entered(entmon);
 		table.add(name, entered);
-		cout << "UnorderedTable: add. Operations: " << counttable << endl;
+		cout << "UnorderedTable: add. Operations: " << table.counttable << endl;
 		tree.add(name, entered);
-		cout << "AVLTreeTable: add. Operations: " << counttree << endl;
+		cout << "AVLTreeTable: add. Operations: " << tree.counttree << endl;
 		hashtable.add(name, entered);
-		cout << "HashTable: add. Operations: " << counthash << endl;
+		cout << "HashTable: add. Operations: " << hashtable.counthash << endl;
 	}
 	while (true) {
 		cout << "If you would like to add new polynom enter 1" << endl;
@@ -121,33 +121,33 @@ int main() {
 			}
 			polynoms entered(entmon);
 			table.add(name, entered);
-			cout << "UnorderedTable: add. Operations: " << counttable << endl;
+			cout << "UnorderedTable: add. Operations: " << table.counttable << endl;
 			tree.add(name, entered);
-			cout << "AVLTreeTable: add. Operations: " << counttree << endl;
+			cout << "AVLTreeTable: add. Operations: " << tree.counttree << endl;
 			hashtable.add(name, entered);
-			cout << "HashTable: add. Operations: " << counthash << endl;
+			cout << "HashTable: add. Operations: " << hashtable.counthash << endl;
 		}
 		else if (choice == 2) {
 			cout << "Enter the name of polynom which need to be deleted: " << endl;
 			string name;
 			cin >> name;
 			table.clear(name);
-			cout << "UnorderedTable: clear. Operations: " << counttable << endl;
+			cout << "UnorderedTable: clear. Operations: " << table.counttable << endl;
 			tree.clear(name);
-			cout << "AVLTreeTable: clear. Operations: " << counttree << endl;
+			cout << "AVLTreeTable: clear. Operations: " << tree.counttree << endl;
 			hashtable.clear(name);
-			cout << "HashTable: clear. Operations: " << counthash << endl;
+			cout << "HashTable: clear. Operations: " << hashtable.counthash << endl;
 		}
 		else if (choice == 3) {
 			cout << "Enter the name of polynom which you wanto to searh" << endl;
 			string name;
 			cin >> name;
 			cout << table.search(name) << endl;
-			cout << "UnorderedTable: search. Operations: " << counttable << endl;
+			cout << "UnorderedTable: search. Operations: " << table.counttable << endl;
 			cout << tree.search(name) << endl;
-			cout << "AVLTreeTable: search. Operations: " << counttree << endl;
+			cout << "AVLTreeTable: search. Operations: " << tree.counttree << endl;
 			cout << hashtable.search(name) << endl;
-			cout << "HashTable: search. Operations: " << counthash << endl;
+			cout << "HashTable: search. Operations: " << hashtable.counthash << endl;
 		}
 		else if (choice == 4) {
 			DoArithmetic(table, tree, hashtable);

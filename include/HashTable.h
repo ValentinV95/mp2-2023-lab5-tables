@@ -1,7 +1,7 @@
 #pragma once
 #include "poly.h"
 
-static int counthash = 0;
+
 class HashTable {
 	class Rec {
 	public:
@@ -26,4 +26,5 @@ public:
 	void clear(std::string name);
 	void resize();
 	polynoms Arithmetic(std::string strexpr);
+	int counthash = 0;
 };

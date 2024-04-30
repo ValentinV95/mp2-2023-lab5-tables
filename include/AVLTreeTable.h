@@ -2,7 +2,7 @@
 #include "poly.h"
 #include <vector>
 
-static int counttree = 0;
+
 class AVLTreeTable {
 	class Node {
 	public:
@@ -14,14 +14,13 @@ class AVLTreeTable {
 		
 	};
 	Node* head;
-	Node* sh(std::string name);
+	Node* sh(std::string& name);
 	void TreeDestr(Node*& delv);
 	void seth(Node* x);
-
 public:
 	AVLTreeTable();
 	~AVLTreeTable();
-	polynoms search(std::string name);
+	polynoms search(std::string& name);
 	std::vector<Node*> memorysearch(std::string name);
 	int balance(Node* nd);
 	void smallleftrot(Node* xparent, Node* x);
@@ -31,4 +30,5 @@ public:
 	void add(std::string name, polynoms pol);
 	void clear(std::string name);
 	polynoms Arithmetic(std::string strexpr);
+	int counttree = 0;
 };

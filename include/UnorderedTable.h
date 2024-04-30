@@ -2,10 +2,11 @@
 #include "poly.h"
 #include <vector>
 
-static int counttable = 0;
+
 class UnorderedTable {
 	std::vector<std::pair<std::string, polynoms>> table;
 	size_t size;
+	
 public:
 	UnorderedTable();
 	UnorderedTable(UnorderedTable& T);
@@ -14,4 +15,5 @@ public:
 	void clear(std::string name);
 	size_t getsize();
 	polynoms Arithmetic(std::string strexpr);
+	int counttable = 0;
 };

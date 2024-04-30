@@ -10,9 +10,10 @@ AVLTreeTable::Node::Node(std::string name, polynoms pol) {
 }
 
 
-AVLTreeTable::Node* AVLTreeTable::sh(std::string name) {
+AVLTreeTable::Node* AVLTreeTable::sh(std::string& name) {
 	Node* cur = head;
 	while (cur) {
+		counttree++;
 		if (cur->data.first == name) {
 			return cur;
 		}
@@ -54,7 +55,7 @@ void AVLTreeTable:: seth(Node* x) {
 AVLTreeTable::AVLTreeTable() : head(nullptr) {}
 AVLTreeTable::~AVLTreeTable() { TreeDestr(head); }
 
-polynoms AVLTreeTable::search(std::string name) {
+polynoms AVLTreeTable::search(std::string& name) {
 	counttree = 0;
 	Node* cur = sh(name);
 	return cur->data.second;
