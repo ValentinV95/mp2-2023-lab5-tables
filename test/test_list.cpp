@@ -118,6 +118,8 @@ TEST(List, can_erase_from_front)
 	List<int> l;
 	l.insert(42);
 	ASSERT_NO_THROW(l.pop());
+	ASSERT_NO_THROW(l.pop());
+	ASSERT_NO_THROW(l.pop());
 }
 
 TEST(List, erase_changes_size)
@@ -127,6 +129,10 @@ TEST(List, erase_changes_size)
 	l.insert(42);
 	l.pop();
 	EXPECT_EQ(1, l.size());
+	l.pop();
+	EXPECT_EQ(0, l.size());
+	l.pop();
+	EXPECT_EQ(0, l.size());
 }
 
 TEST(List, can_erase_after)
@@ -141,6 +147,20 @@ TEST(List, can_erase_after)
 	l.eraseAfter(it);
 
 	EXPECT_EQ(42, *(++it));
+}
+
+TEST(List, can_erase_after_in_empty_list)
+{
+	List<int> l;
+	ASSERT_NO_THROW(l.eraseAfter(l.before_begin()));
+	ASSERT_NO_THROW(l.eraseAfter(l.before_begin()));
+}
+
+TEST(List, erase_after_dont_change_size_of_empty_list)
+{
+	List<int> l;
+	l.eraseAfter(l.before_begin());
+	EXPECT_EQ(0, l.size());
 }
 
 TEST(List, erase_after_changes_size)

@@ -31,8 +31,13 @@ private:
 	{
 		assert(node != nullptr && "Iterator is pointing at nullptr");
 		Node* tmp = node->next;
-		node->next = tmp->next;
-		delete tmp;
+
+		if(tmp != nullptr)
+		{
+			node->next = tmp->next;
+			delete tmp;
+			--sz;
+		}
 	}
 
 	Node* head;
@@ -158,15 +163,18 @@ public:
 	void insertAfter(const_iterator pos, const T& t) { _insert_after(pos.node, t); sz++; }
 
 	// Удаляет из списка значение, указанное итератором pos
-	void eraseAfter(const_iterator pos) { _erase_after(pos.node); sz--; }
+	void eraseAfter(const_iterator pos) { _erase_after(pos.node); }
 
 	// Удаляет элемент из начала списка
 	void pop()
 	{
-		Node* tmp = head->next;
-		delete head;
-		head = tmp;
-		sz--;
+		if(head->next != nullptr)
+		{
+			Node* tmp = head->next->next;
+			delete head->next;
+			head->next = tmp;
+			sz--;
+		}
 	}
 
 	bool isEmpty() const noexcept { return sz == 0; } // Проверяет, пуст ли список
