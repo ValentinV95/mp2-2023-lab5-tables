@@ -20,28 +20,31 @@ TEST(AVLTreeTable, can_add) {
 }
 TEST(AVLTreeTable, can_searh) {
 	list<pair<int, double>>a;
+	std::string str = "pol";
 	a.push_back(make_pair(100, 1));
 	polynoms A(a);
 	AVLTreeTable T;
 	T.add("pol", A);
-	ASSERT_NO_THROW(T.search("pol"));
+	ASSERT_NO_THROW(T.search(str));
 }
 TEST(AVLTreeTable, copy_table_has_its_own_memory) {
 	list<pair<int, double>>a;
+	std::string str = "pol";
 	a.push_back(make_pair(100, 1));
 	polynoms A(a);
 	AVLTreeTable T;
 	AVLTreeTable T2(T);
 	T2.add("pol", A);
-	ASSERT_ANY_THROW(T.search("pol"));
+	ASSERT_ANY_THROW(T.search(str));
 }
 TEST(AVLTreeTable, search_and_add_are_correct) {
 	list<pair<int, double>>a;
+	std::string str = "pol";
 	a.push_back(make_pair(100, 1));
 	polynoms A(a);
 	AVLTreeTable T;
 	T.add("pol", A);
-	EXPECT_EQ(T.search("pol"), A);
+	EXPECT_EQ(T.search(str), A);
 }
 TEST(AVLTreeTable, can_clear) {
 	list<pair<int, double>>a;
@@ -53,12 +56,13 @@ TEST(AVLTreeTable, can_clear) {
 }
 TEST(AVLTreeTable, clear_is_correct) {
 	list<pair<int, double>>a;
+	std::string str = "pol";
 	a.push_back(make_pair(100, 1));
 	polynoms A(a);
 	AVLTreeTable T;
 	T.add("pol", A);
 	T.clear("pol");
-	ASSERT_ANY_THROW(T.search("pol"));
+	ASSERT_ANY_THROW(T.search(str));
 }
 TEST(AVLTreeTable, can_arithmetic) {
 	list<pair<int, double>>a, b, c, d, a20;
