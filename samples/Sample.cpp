@@ -105,53 +105,57 @@ int main() {
 		cout << "If you would like to end enter anything else" << endl;
 		short int choice;
 		cin >> choice;
-		
-		if (choice == 1) {
-			int first = 0;
-			double second = 0;
-			list<pair<int, double>> entmon;
-			string name;
-			cout << "Enter the name of polynom, then enter monoms by rules " << endl;
-			cin >> name;
-			cout << "Monoms: " << endl;
-			while (true) {
-				cin >> first >> second;
-				if (first == -1 && second == -1) break;
-				entmon.push_back({ first,second });
+		try {
+			if (choice == 1) {
+				int first = 0;
+				double second = 0;
+				list<pair<int, double>> entmon;
+				string name;
+				cout << "Enter the name of polynom, then enter monoms by rules " << endl;
+				cin >> name;
+				cout << "Monoms: " << endl;
+				while (true) {
+					cin >> first >> second;
+					if (first == -1 && second == -1) break;
+					entmon.push_back({ first,second });
+				}
+				polynoms entered(entmon);
+				table.add(name, entered);
+				cout << "UnorderedTable: add. Operations: " << table.counttable << endl;
+				tree.add(name, entered);
+				cout << "AVLTreeTable: add. Operations: " << tree.counttree << endl;
+				hashtable.add(name, entered);
+				cout << "HashTable: add. Operations: " << hashtable.counthash << endl;
 			}
-			polynoms entered(entmon);
-			table.add(name, entered);
-			cout << "UnorderedTable: add. Operations: " << table.counttable << endl;
-			tree.add(name, entered);
-			cout << "AVLTreeTable: add. Operations: " << tree.counttree << endl;
-			hashtable.add(name, entered);
-			cout << "HashTable: add. Operations: " << hashtable.counthash << endl;
+			else if (choice == 2) {
+				cout << "Enter the name of polynom which need to be deleted: " << endl;
+				string name;
+				cin >> name;
+				table.clear(name);
+				cout << "UnorderedTable: clear. Operations: " << table.counttable << endl;
+				tree.clear(name);
+				cout << "AVLTreeTable: clear. Operations: " << tree.counttree << endl;
+				hashtable.clear(name);
+				cout << "HashTable: clear. Operations: " << hashtable.counthash << endl;
+			}
+			else if (choice == 3) {
+				cout << "Enter the name of polynom which you wanto to searh" << endl;
+				string name;
+				cin >> name;
+				cout << table.search(name) << endl;
+				cout << "UnorderedTable: search. Operations: " << table.counttable << endl;
+				cout << tree.search(name) << endl;
+				cout << "AVLTreeTable: search. Operations: " << tree.counttree << endl;
+				cout << hashtable.search(name) << endl;
+				cout << "HashTable: search. Operations: " << hashtable.counthash << endl;
+			}
+			else if (choice == 4) {
+				DoArithmetic(table, tree, hashtable);
+			}
+			else break;
 		}
-		else if (choice == 2) {
-			cout << "Enter the name of polynom which need to be deleted: " << endl;
-			string name;
-			cin >> name;
-			table.clear(name);
-			cout << "UnorderedTable: clear. Operations: " << table.counttable << endl;
-			tree.clear(name);
-			cout << "AVLTreeTable: clear. Operations: " << tree.counttree << endl;
-			hashtable.clear(name);
-			cout << "HashTable: clear. Operations: " << hashtable.counthash << endl;
+		catch (exception& e) {
+			cout << e.what() << endl;
 		}
-		else if (choice == 3) {
-			cout << "Enter the name of polynom which you wanto to searh" << endl;
-			string name;
-			cin >> name;
-			cout << table.search(name) << endl;
-			cout << "UnorderedTable: search. Operations: " << table.counttable << endl;
-			cout << tree.search(name) << endl;
-			cout << "AVLTreeTable: search. Operations: " << tree.counttree << endl;
-			cout << hashtable.search(name) << endl;
-			cout << "HashTable: search. Operations: " << hashtable.counthash << endl;
-		}
-		else if (choice == 4) {
-			DoArithmetic(table, tree, hashtable);
-		}
-		else break;
 	}
 }

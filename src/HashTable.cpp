@@ -24,7 +24,7 @@ int HashTable::Hash2(std::string name) {
 	res = 1 + strsum % (size - 1);
 	return res;
 }
-HashTable::Rec* HashTable:: sh(std::string name) {
+HashTable::Rec* HashTable:: sh(std::string& name) {
 	for (int i = 0; i < size; i++) {
 		counthash++;
 		if (table[(Hash1(name) + i * Hash2(name)) % size]) {
@@ -86,11 +86,11 @@ HashTable::HashTable(const HashTable& other) {
 	}
 }
 
-polynoms HashTable::search(std::string name) {
+polynoms HashTable::search(std::string& name) {
 	counthash = 0;
 	Rec* tmp = sh(name);
 	if (tmp && tmp->state==1) {
-		return sh(name)->data.second;
+		return tmp->data.second;
 	}
 	throw std::logic_error("No such element in table");
 }
@@ -108,6 +108,7 @@ void HashTable::add(std::string name, polynoms pol) {
 		counthash++;
 		if (table[(Hash1(name) + i * Hash2(name)) % size] != nullptr) {
 			if (table[(Hash1(name) + i * Hash2(name)) % size]->state == 0 || table[(Hash1(name) + i * Hash2(name)) % size]->state == -1) {
+				delete[] table[(Hash1(name) + i * Hash2(name)) % size];
 				table[(Hash1(name) + i * Hash2(name)) % size] = new Rec(name, pol);
 				return;
 			}
@@ -160,6 +161,9 @@ void HashTable:: resize() {
 			}
 		}
 	}
+	for (int i = 0; i < size; i++)
+		if (table[i])
+			delete table[i];
 	delete[] table;
 	table = newtable;
 	size = n;

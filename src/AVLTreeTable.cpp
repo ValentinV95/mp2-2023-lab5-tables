@@ -382,11 +382,19 @@ void AVLTreeTable::clear(std::string name) {
 			}
 			else {
 				counttree++;
-				if (path[path.size() - 2]->left == cur) {
-					path[path.size() - 2]->left = cur->left;
+				if (path.size() == 1) {
+					head = path[0]->left;
+					delete path[0];
 				}
 				else {
-					path[path.size() - 2]->right = cur->left;
+					if (path[path.size() - 2]->left == cur) {
+						path[path.size() - 2]->left = cur->left;
+						delete cur;
+					}
+					else {
+						path[path.size() - 2]->right = cur->left;
+						delete cur;
+					}
 				}
 			}
 		}

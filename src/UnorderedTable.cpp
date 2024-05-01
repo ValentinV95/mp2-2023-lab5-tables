@@ -20,7 +20,7 @@ void UnorderedTable::add(std::string name, polynoms pol) {
 	}
 	throw std::logic_error("This element already exists");
 }
-polynoms UnorderedTable::search(std::string name) {
+polynoms UnorderedTable::search(std::string& name) {
 	counttable = 0;
 	int n = table.size();
 	for (int i = 0; i < n; i++) {
