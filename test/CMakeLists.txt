@@ -1,4 +1,4 @@
-set(target main_tests)
+set(target tables_test)
 
 file(GLOB_RECURSE tests "*.cpp")
 

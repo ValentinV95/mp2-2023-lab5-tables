@@ -4,6 +4,8 @@
 #include "avltree.hpp"
 #include "informer.hpp"
 
+// Unordered table, ordered table (AVL Tree), hash table (hash chain technique)
+
 enum State {
 	kNULL, kCONTENT, kDELETED
 };
