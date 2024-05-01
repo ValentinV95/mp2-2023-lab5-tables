@@ -173,14 +173,11 @@ public:
 		{
 			std::stack<Node*> next = _getNext(key);
 			next_node = next.top();
-			Node* p_next = parent(next_node, next);
+			Node* p_next = parent(next);
 			bool fl = false;
 
 			if (next_node == p_next->l)
 				fl = true;
-
-			if (tmp == head)
-				head = tmp;
 
 			swap(*next_node, *tmp);
 			path = next;
@@ -236,7 +233,7 @@ private:
 
 	void insert_case1(Node*& n, std::stack<Node*>& st)
 	{
-		if (parent(n, st) == nullptr)
+		if (parent(st) == nullptr)
 			n->red = false;
 		else
 			insert_case2(n, st);
@@ -244,7 +241,7 @@ private:
 
 	void insert_case2(Node*& n, std::stack<Node*>& st)
 	{
-		if (!parent(n, st)->red)
+		if (!parent(st)->red)
 			return;
 		else
 			insert_case3(n, st);
@@ -256,9 +253,9 @@ private:
 
 		if (u != nullptr && u->red)
 		{
-			parent(n, st)->red = false;
+			parent(st)->red = false;
 			u->red = false;
-			Node* g = grandparent(n, st);
+			Node* g = grandparent(st);
 			g->red = true;
 			st.pop();
 			st.pop();
@@ -271,8 +268,8 @@ private:
 
 	void insert_case4(Node*& n, std::stack<Node*>& st)
 	{
-		Node* g = grandparent(n, st);
-		Node* p = parent(n, st);
+		Node* g = grandparent(st);
+		Node* p = parent(st);
 
 		if (n == p->r && p == g->l)
 		{
@@ -291,8 +288,8 @@ private:
 
 	void insert_case5(Node*& n, std::stack<Node*>& st)
 	{
-		Node* g = grandparent(n, st);
-		Node* p = parent(n, st);
+		Node* g = grandparent(st);
+		Node* p = parent(st);
 
 		p->red = false;
 		g->red = true;
@@ -316,7 +313,7 @@ private:
 			return;
 
 		Node* b = brother(n, st);
-		Node* p = parent(n, st);
+		Node* p = parent(st);
 
 		if (b != nullptr && b->red)
 		{
@@ -350,7 +347,7 @@ private:
 			)
 		{
 			b->red = true;
-			Node* p = parent(n, st);
+			Node* p = parent(st);
 
 			if (p->red)
 			{
@@ -369,7 +366,7 @@ private:
 
 	void remove_case3(Node*& n, std::stack<Node*>& st)
 	{
-		Node* p = parent(n, st);
+		Node* p = parent(st);
 		Node* b = brother(n, st);
 
 		if (n == p->l)
@@ -416,7 +413,7 @@ private:
 
 	void remove_case4(Node*& n, std::stack<Node*>& st)
 	{
-		Node* p = parent(n, st);
+		Node* p = parent(st);
 		Node* b = brother(n, st);
 
 		b->red = p->red;
@@ -435,7 +432,7 @@ private:
 		}
 	}
 
-	Node* parent(Node* n, std::stack<Node*>& st)
+	Node* parent(std::stack<Node*>& st)
 	{
 		if (st.size() > 1)
 		{
@@ -451,7 +448,7 @@ private:
 
 	Node* brother(Node* n, std::stack<Node*>& st)
 	{
-		Node* p = parent(n, st);
+		Node* p = parent(st);
 
 		if (p == nullptr)
 			return nullptr;
@@ -461,7 +458,7 @@ private:
 			return p->l;
 	}
 
-	Node* grandparent(Node* n, std::stack<Node*>& st)
+	Node* grandparent(std::stack<Node*>& st)
 	{
 		if (st.size() > 2)
 		{
@@ -480,8 +477,8 @@ private:
 
 	Node* uncle(Node* n, std::stack<Node*>& st)
 	{
-		Node* g = grandparent(n, st);
-		Node* p = parent(n, st);
+		Node* g = grandparent(st);
+		Node* p = parent(st);
 
 		if (g == nullptr)
 			return nullptr;
@@ -494,7 +491,7 @@ private:
 	void rotateLeft(Node*& x, std::stack<Node*>& st)
 	{
 		Node* y = x->r;
-		Node* p = grandparent(x, st);
+		Node* p = grandparent(st);
 
 		x->r = y->l;
 		y->l = x;
@@ -515,7 +512,7 @@ private:
 	void rotateRight(Node*& x, std::stack<Node*>& st)
 	{
 		Node* y = x->l;
-		Node* p = grandparent(x, st);
+		Node* p = grandparent(st);
 
 		x->l = y->r;
 		y->r = x;
