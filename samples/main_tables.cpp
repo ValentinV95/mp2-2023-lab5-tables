@@ -6,8 +6,13 @@ int main() {
 	OrderedTable<std::string, Polynom> T2;
 	HashTable T3;
 	std::string str;
-	int choose;
+	int choose=0;
 	while (true) {
+		if (choose == 1) {
+			std::cout << "Unordered table, add element, count operations:" << T1.countoperations << "\n";
+			std::cout << "Ordered table, add element, count operations:" << T2.countoperations << "\n";
+			std::cout << "Hash table, add element, count operations:" << T3.countoperations << "\n";
+			}
 			std::cout << "Enter \"1\" if you want to edit the set of polynomials available to you\n";
 			std::cout << "Enter \"2\" if you want to write an arithmetic expression with polynomials\n";
 			std::cout << "Enter \"0\" to end work with program\n";
@@ -15,6 +20,11 @@ int main() {
 			system("cls");
 			if (choose == 2) while (true) {
 				try {
+					if (choose == 1) {
+						std::cout << "Unordered table, add element, count operations:" << T1.countoperations << "\n";
+						std::cout << "Ordered table, add element, count operations:" << T2.countoperations << "\n";
+						std::cout << "Hash table, add element, count operations:" << T3.countoperations << "\n";
+					}
 					std::cout << "Enter a string what you want to count or enter \"end\" to end entering arithmetic expressions \n";
 					std::cout << "Available math fuctions:sin, cos, tan, cot, exp, log \n";
 					std::cout << "After functions you need to enter \'(\'\n";
@@ -23,6 +33,7 @@ int main() {
 					std::cout << "You can enter any names of the form #set of letters##set of numbers# for polynomials that are in table with the exeption of the names of available math functions\n";
 					std::getline(std::cin, str);
 					if (str == "end") {
+						choose = 0;
 						system("cls");
 						break;
 					}
@@ -30,9 +41,9 @@ int main() {
 						system("cls");
 						continue;
 					}
+					system("cls");
 					TPostfix solution(str);
 					Polynom res = solution.count(T1, T2, T3);
-					system("cls");
 					do {
 						std::cout << str << '\n';
 						std::cout << "Res: " << res << "\n\n";
@@ -71,6 +82,11 @@ int main() {
 			}
 			else if (choose == 1) while (true) {
 				try {
+					if (choose == 4) {
+						std::cout << "Unordered table, add element, count operations:" << T1.countoperations << "\n";
+						std::cout << "Ordered table, add element, count operations:" << T2.countoperations << "\n";
+						std::cout << "Hash table, add element, count operations:" << T3.countoperations << "\n";
+					}
 					std::cout << "Select an option:\n1)Add new polynomial to table\n2)delete polynomial from table\n3)find a polynomial in table(or rename it)\n0)end edit table sith polynomials\n";
 					std::cin >> choose;
 					if (choose < 0 || choose>3) {
@@ -99,6 +115,7 @@ int main() {
 						T1.add(str, p);
 						T2.add(str, p);
 						T3.add(str, p);
+						choose = 4;
 						system("cls");
 					}
 					else {
@@ -108,23 +125,32 @@ int main() {
 						system("cls");
 						if (choose == 2) {
 							T1.del(str);
+							std::cout << "Unordered table, delete element, count operations:" << T1.countoperations << "\n";
 							T2.del(str);
+							std::cout << "Ordered table, delete element, count operations:" << T2.countoperations << "\n";
 							T3.del(str);
+							std::cout << "Hash table, delete element, count operations:" << T3.countoperations << "\n";
 						}
 						if (choose == 3) {
 							do {
 								Polynom p;
 								T1.find(str);
+								std::cout << "Unordered table, find element, count operations:" << T1.countoperations << "\n";
 								T2.find(str);
+								std::cout << "Ordered table, find element, count operations:" << T2.countoperations << "\n";
 								p = T3.find(str);
+								std::cout << "Hash table, find element, count operations:" << T3.countoperations << "\n";
 								std::cout << p << "\n\n";
 								std::cout << "Select an option:\n1)Rename this polynomial\n0)return to table menu\n";
 								std::cin >> choose;
 								system("cls");
 								if (choose == 1) {
 									T1.del(str);
+									std::cout << "Unordered table, delete element, count operations:" << T1.countoperations << "\n";
 									T2.del(str);
+									std::cout << "Ordered table, delete element, count operations:" << T2.countoperations << "\n";
 									T3.del(str);
+									std::cout << "Hash table, delete element, count operations:" << T3.countoperations << "\n";
 									do {
 										system("cls");
 										std::cout << p << "\n\n";

@@ -22,7 +22,7 @@ class TPostfix {
 public:
 	TPostfix(const std::string& s); //Turns string into a Reverse Polish Notation, if it possible.
 
-	Polynom count(const UnorderedTable<std::string, Polynom>& T1, 
-				 const OrderedTable<std::string, Polynom>& T2,
-				 const HashTable& T3); //Count a string stored in a class element. Variables is entered by programm.
+	Polynom count(UnorderedTable<std::string, Polynom>& T1, 
+				 OrderedTable<std::string, Polynom>& T2,
+				 HashTable& T3); //Count a string stored in a class element. Variables is entered by programm.
 };

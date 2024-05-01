@@ -4,6 +4,7 @@
 
 class HashTable {
 	std::pair<short int, std::pair<std::string, Polynom>>* mas;
+	// 0 - null, 1 - deleted, 2 - contented
 
 	size_t capacity, q;
 
@@ -20,7 +21,9 @@ public:
 
 	void add(const std::pair<std::string, Polynom>& pa);
 
-	Polynom find(const std::string& s) const;
+	Polynom find(const std::string& s);
 
 	void del(const std::string& s);
+
+	size_t countoperations;
 };

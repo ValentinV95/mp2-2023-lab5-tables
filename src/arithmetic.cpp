@@ -117,7 +117,7 @@ TPostfix::TPostfix(const std::string& str) {
 			if (s[i] == '0'&& s[i+1] >= '0' && s[i+1] <= '9') throw std::invalid_argument(Error_string(s, i) + "A number cannot start with an insignificant \'0\'");
 			RPN.push_back(number_check(s, i));
 		}
-		else if ((s[i] >= 'A' && s[i + 3]<='Z') || (s[i] >= 'a' && s[i + 3]<='z')) { //Work with polynomial names
+		else if ((s[i] >= 'A' && s[i]<='Z') || (s[i] >= 'a' && s[i]<='z')) { //Work with polynomial names
 			i++;
 			while (i != s.size() && ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z'))) {
 				tmp += s[i];
@@ -141,9 +141,9 @@ TPostfix::TPostfix(const std::string& str) {
 	while (!St.isEmpty()) RPN.push_back(St.pop_back());
 }
 
-Polynom TPostfix::count(const UnorderedTable<std::string, Polynom>& T1,
-					   const OrderedTable<std::string, Polynom>& T2,
-					   const HashTable& T3) {
+Polynom TPostfix::count(UnorderedTable<std::string, Polynom>& T1,
+					   OrderedTable<std::string, Polynom>& T2,
+					   HashTable& T3) {
 	TStack<Polynom> St;
 	int j = 0;
 	for (int i = 0; i < RPN.size(); i++) {
@@ -163,8 +163,11 @@ Polynom TPostfix::count(const UnorderedTable<std::string, Polynom>& T1,
 		else { 
 			if (RPN[i][0] < '0' || RPN[i][0]> '9') {
 				T1.find(RPN[i]);
+				std::cout << "Unordered table, find element, count operations:" << T1.countoperations<< "\n";
 				T2.find(RPN[i]);
+				std::cout << "Ordered table, find element, count operations:" << T2.countoperations << "\n";
 				St.push_back(T3.find(RPN[i]));
+				std::cout << "Hash table, find element, count operations:" << T3.countoperations << "\n";
 			}
 			else St.push_back(valid(RPN[i]));
 		}
