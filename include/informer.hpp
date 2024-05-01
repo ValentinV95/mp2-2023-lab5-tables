@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 
+// Info about operations
+
 enum class Table {
 	kUnord, kOrd, kHash
 };

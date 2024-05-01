@@ -57,7 +57,7 @@ public:
 		inf_.op();
 		if (x == -1) {
 			inf_.inform(TableOps::kPop);
-			return;
+			throw std::invalid_argument("Table doesn't have this key");
 		}
 		inf_.op();
 		data_[x].state_ = kDELETED;
