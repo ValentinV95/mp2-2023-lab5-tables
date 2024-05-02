@@ -71,7 +71,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\kovko\source\repos\mp2-2023-lab5-tables\Arithmetic;$(IncludePath)</IncludePath>
+    <IncludePath>..\Polynomials;..\Hash_table;..\Unordered;..\Red–black tree;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -103,10 +105,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Unordered;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <TranslateIncludes>false</TranslateIncludes>
+      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,6 +141,14 @@
   <ItemGroup>
     <ClInclude Include="arithmetic.h" />
     <ClInclude Include="stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Polynomials\Polynomials.vcxproj">
+      <Project>{b3dcf879-4012-41a7-a837-8d82fc9b4db8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Red–black tree\Red–black tree.vcxproj">
+      <Project>{c85ef5ab-90b9-43aa-8ac6-e45c51d5149c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
