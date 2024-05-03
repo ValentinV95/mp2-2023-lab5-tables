@@ -51,14 +51,21 @@ Monom::Monom(double inpcoef, unsigned int inpdegs) : coef(inpcoef) {
 
 std::ostream &operator<<(std::ostream &stream, const Monom &m) {
 	bool coef_is_one = false;
-	if (std::abs(m.coef - 1.0) < eps) {
+	bool all_degs_are_one = true;
+	if (std::abs(std::abs(m.coef) - 1.0) < eps) {
 		coef_is_one = true;
 		bool sgn = m.coef > 0.0 ? true : false;
 		if (!sgn) {
 			stream << '-';
 		}
 	}
-	else {
+	for (size_t i = 0; i < VARS; i++) {
+		if (m.degs[i] != 0) {
+			all_degs_are_one = false;
+			break;
+		}
+	}
+	if (!coef_is_one || (coef_is_one && all_degs_are_one)) {
 		stream << m.coef;
 	}
 	for (size_t i = 0; i < VARS; i++) {

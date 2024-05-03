@@ -11,6 +11,7 @@ inline void get_var(T &var) {
 	std::cin.clear();
 	std::getline(std::cin, buf);
 }
+
 const double eps = 1e-6;
 const size_t VARS = 3;
 
@@ -59,7 +60,7 @@ public:
 private:
 	class Node {
 	public:
-		Node(T inpvalue, Node *inpnext, Node *inpprev) : value(inpvalue), next(inpnext), prev(inpprev) {}
+		Node(const T& inpvalue, Node *inpnext, Node *inpprev) : value(inpvalue), next(inpnext), prev(inpprev) {}
 		T value;
 		Node *next;
 		Node *prev;

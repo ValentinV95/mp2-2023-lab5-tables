@@ -41,10 +41,10 @@ int main(int argc, char* argv[]) {
 		switch (buf) {
 			case '1': {
 				std::cout << "¬ведите им€ полинома: ";
-				get_var(namebuf);
+				std::getline(std::cin, namebuf);
 				std::cout << "¬ведите арифметическое выражение из x, y, z, выражающее полином (использу€ ^, +, -, *)" << std::endl;
 				std::cout << "ѕример: (5*x^2 + 6*y*z) * x^3 (всегда ставьте * перед x,y,z)." << std::endl;
-				get_var(polybuf);
+				std::getline(std::cin, polybuf);
 				try {
 					Polynom poly = calc_polynom(polybuf);
 					ut.insert(namebuf, poly);
@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
 			}
 			case '2': {
 				std::cout << "¬ведите им€ полинома: ";
-				get_var(namebuf);
+				std::getline(std::cin, namebuf);
 				std::cout << "»звлечЄн полином: " << std::endl;
 				try {
 					Polynom* poly = ut.find(namebuf);
@@ -76,13 +76,15 @@ int main(int argc, char* argv[]) {
 			}
 			case '3': {
 				std::cout << "¬ведите им€ полинома: ";
-				get_var(namebuf);
+				std::getline(std::cin, namebuf);
 				std::cout << "»звлечЄн полином: " << std::endl;
 				try {
 					Polynom* poly = ut.find(namebuf);
 					if (poly != nullptr) {
 						std::cout << *poly << std::endl;
 					}
+					poly = ot.find(namebuf);
+					poly = ht.find(namebuf);
 				}
 				catch (const std::exception& e) {
 					std::cout << "Exception: " << e.what() << std::endl;

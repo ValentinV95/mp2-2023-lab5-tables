@@ -7,29 +7,62 @@ template <typename K, typename T>
 class AVLTree {
 public:
 	AVLTree(Informer& inf = Informer(Table::kOrd)) : head_(nullptr), inf_(inf) {}
+	~AVLTree() { height_deletion(head_); }
 	T* find(const K& key);
 	void insert(const K& key, const T& value);
 	void remove(const K& key);
 private:
 	class Node {
 	public:
-		Node(const K& key, const T& value, Node* left, Node* right, size_t height = 1): key_(key), value_(value), left_(left), right_(right), height_(height) {}
+		Node(const K& key, const T& value, Node* left, Node* right, size_t height = 1) : left_(left), right_(right), height_(height) {
+			key_ = new K(key);
+			value_ = new T(value);
+		}
+		~Node() {
+			delete key_;
+			delete value_;
+			left_ = nullptr;
+			right_ = nullptr;
+			height_ = 0;
+		}
 		int diff() {
 			if (left_ == nullptr && right_ != nullptr) { return -static_cast<int>(right_->height_); }
 			else if (left_ != nullptr && right_ == nullptr) { return left_->height_; }
 			else if (left_ == nullptr && right_ == nullptr) { return 0; }
 			else { return static_cast<int>(left_->height_) - static_cast<int>(right_->height_); }
 		}
-		K key_;
-		T value_;
+		K* key_;
+		T* value_;
 		Node* left_;
 		Node* right_;
 		size_t height_;
 	};
+	bool has_key(Node* tmp, const K& key, TStack<Node*>& stack) {
+		while (tmp != nullptr) {
+			inf_.op(4);
+			stack.push(tmp);
+			if (key < *tmp->key_) {
+				tmp = tmp->left_;
+			}
+			else if (key > *tmp->key_) {
+				tmp = tmp->right_;
+			}
+			else {
+				return true;
+			}
+		}
+		return false;
+	}
+	void height_deletion(Node* nd) {
+		if (nd == nullptr) { return; }
+		height_deletion(nd->left_);
+		height_deletion(nd->right_);
+		delete nd;
+	}
 	void find_rem_right_child(Node* cur, TStack<Node*>& stack) {
 		if (cur->right_ == nullptr) {
-			cur->key_ = cur->left_->key_;
-			cur->value_ = cur->left_->value_;
+			*cur->key_ = *cur->left_->key_;
+			*cur->value_ = *cur->left_->value_;
 			delete cur->left_;
 			cur->left_ = nullptr;
 			inf_.op(5);
@@ -38,8 +71,8 @@ private:
 		Node* cur2 = cur->right_;
 		inf_.op();
 		if (cur2->left_ == nullptr) {
-			cur->key_ = cur2->key_;
-			cur->value_ = cur2->value_;
+			*cur->key_ = *cur2->key_;
+			*cur->value_ = *cur2->value_;
 			stack.top()->right_ = nullptr;
 			delete cur2;
 			inf_.op(5);
@@ -50,8 +83,8 @@ private:
 			stack.push(cur2);
 			cur2 = cur2->left_;
 		}
-		cur->key_ = cur2->key_;
-		cur->value_ = cur2->value_;
+		*cur->key_ = *cur2->key_;
+		*cur->value_ = *cur2->value_;
 		stack.top()->left_ = nullptr;
 		delete cur2;
 		inf_.op(4);
@@ -150,14 +183,14 @@ T* AVLTree<K, T>::find(const K& key) {
 	Node* tmp = head_;
 	while (tmp != nullptr) {
 		inf_.op(3);
-		if (key < tmp->key_) {
+		if (key < *tmp->key_) {
 			tmp = tmp->left_;
 		}
-		else if (key > tmp->key_) {
+		else if (key > *tmp->key_) {
 			tmp = tmp->right_;
 		}
 		else {
-			return &tmp->value_;
+			return tmp->value_;
 		}
 	}
 	throw std::runtime_error("Key not found in a tree");
@@ -174,22 +207,13 @@ void AVLTree<K, T>::insert(const K& key, const T& value) {
 		return;
 	}
 	TStack<Node*> stack;
-	while (tmp != nullptr) {
-		inf_.op(4);
-		stack.push(tmp);
-		if (key < tmp->key_) {
-			tmp = tmp->left_;
-		}
-		else if (key > tmp->key_) {
-			tmp = tmp->right_;
-		}
-		else {
-			throw std::invalid_argument("Key is already in a tree");
-		}
+	bool key_found = has_key(tmp, key, stack);
+	if (key_found) {
+		throw std::invalid_argument("Key is already in a tree");
 	}
 	inf_.op(3);
 	tmp = stack.pop();
-	if (key < tmp->key_) { tmp->left_ = constructed; }
+	if (key < *tmp->key_) { tmp->left_ = constructed; }
 	else { tmp->right_ = constructed; }
 	inf_.op(2);
 	if (tmp->diff() != 0) { tmp->height_++; }
@@ -201,24 +225,10 @@ void AVLTree<K, T>::remove(const K& key) {
 	Node* tmp = head_;
 	Node* tmp2;
 	TStack<Node*> stack;
-	bool good = false;
 	inf_.op(1);
-	while (tmp != nullptr) {
-		inf_.op(4);
-		stack.push(tmp);
-		if (key < tmp->key_) {
-			tmp = tmp->left_;
-		}
-		else if (key > tmp->key_) {
-			tmp = tmp->right_;
-		}
-		else {
-			good = true;
-			break;
-		}
-	}
+	bool key_found = has_key(tmp, key, stack);
 	inf_.op(3);
-	if (good == false) { throw std::invalid_argument("Key not found in a tree"); }
+	if (key_found == false) { throw std::invalid_argument("Key not found in a tree"); }
 	tmp = stack.pop();
 	if (tmp == head_) {
 		if (tmp->left_ != nullptr || tmp->right_ != nullptr) {
