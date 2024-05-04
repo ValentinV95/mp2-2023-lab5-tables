@@ -59,6 +59,21 @@ private:
 			return father->l;
 		else return nullptr;
 	}
+	void clean(Node* n)
+	{
+		if (n != nullptr)
+		{
+				clean(n->l);
+
+				clean(n->r);
+
+			delete n->data;
+			delete n->key;
+			n->l = n->r = nullptr;
+			n->data = nullptr;
+			n->key = nullptr;
+		}
+	}
 public:
 	UV_RBT()
 	{
@@ -298,5 +313,9 @@ public:
 				else prev = prev->l;
 			}
 		}
+	}
+	~UV_RBT()
+	{
+		clean(root);
 	}
 };
