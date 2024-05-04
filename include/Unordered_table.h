@@ -112,10 +112,7 @@ public:
 				return *data[i].r_data;
 			}
 		}
-		if (i == size)
-		{
-			throw invalid_argument("There is no element with l_data == name");
-		}
+		throw invalid_argument("There is no element with l_data == name");
 	}
 	L& return_by_Rdata(const R& name)	//returns l_data with r_data == name or NULL
 	{
@@ -127,10 +124,7 @@ public:
 				return *data[i].l_data;
 			}
 		}
-		if (i == size)
-		{
-			throw invalid_argument("There is no element with r_data == name");
-		}
+		throw invalid_argument("There is no element with r_data == name");
 	}
 	bool is_Rdata(const R& name)	//returns true if there is r_data == name; otherwise returns false
 	{
@@ -142,7 +136,7 @@ public:
 				return true;
 			}
 		}
-		if (i == size) return false;
+		return false;
 	}
 	bool is_Ldata(L name)	//returns true if there is l_data == name; otherwise returns false
 	{
@@ -154,6 +148,6 @@ public:
 				return true;
 			}
 		}
-		if (i == size) return false;
+		return false;
 	}
 };

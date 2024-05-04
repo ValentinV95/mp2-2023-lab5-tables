@@ -1,0 +1,65 @@
+Time costs of insertion: (4.5.2024 23:18:45)
+Unordered table: 7.5e-06 sec
+Hash table: 3.55e-05 sec
+Red-black tree: 4.4e-06 sec
+
+Time costs of insertion: (4.5.2024 23:18:45)
+Unordered table: 3.3e-06 sec
+Hash table: 7.2e-06 sec
+Red-black tree: 5.4e-06 sec
+
+Time costs of checking availability: (4.5.2024 23:18:45)
+Unordered table: 3.1e-06 sec
+Hash table: 2.7e-06 sec
+Red-black tree: 4e-07 sec
+
+Time costs of insertion: (4.5.2024 23:18:45)
+Unordered table: 2.5e-06 sec
+Hash table: 4.8e-06 sec
+Red-black tree: 2.2e-06 sec
+
+Time costs of search: (4.5.2024 23:18:45)
+Unordered table: 1.6e-06 sec
+Hash table: 3e-06 sec
+Red-black tree: 1.2e-06 sec
+
+Time costs of insertion: (4.5.2024 23:18:45)
+Unordered table: 2.6e-06 sec
+Hash table: 4.6e-06 sec
+Red-black tree: 2.2e-06 sec
+
+Time costs of search: (4.5.2024 23:18:45)
+Unordered table: 1.4e-06 sec
+Hash table: 3e-06 sec
+Red-black tree: 1.5e-06 sec
+
+Time costs of insertion: (4.5.2024 23:18:45)
+Unordered table: 5e-06 sec
+Hash table: 3.27e-05 sec
+Red-black tree: 7.3e-06 sec
+
+Time costs of insertion: (4.5.2024 23:18:45)
+Unordered table: 3.5e-06 sec
+Hash table: 4.7e-06 sec
+Red-black tree: 4.04e-05 sec
+
+Time costs of checking availability: (4.5.2024 23:18:45)
+Unordered table: 4.1e-06 sec
+Hash table: 3.3e-06 sec
+Red-black tree: 5e-07 sec
+
+Time costs of checking availability: (4.5.2024 23:18:45)
+Unordered table: 3.2e-06 sec
+Hash table: 1.1e-06 sec
+Red-black tree: 9e-07 sec
+
+Time costs of search: (4.5.2024 23:18:45)
+Unordered table: 2.8e-06 sec
+Hash table: 5.2e-06 sec
+Red-black tree: 2.4e-06 sec
+
+Time costs of search: (4.5.2024 23:18:45)
+Unordered table: 2.9e-06 sec
+Hash table: 2.6e-06 sec
+Red-black tree: 2.5e-06 sec
+

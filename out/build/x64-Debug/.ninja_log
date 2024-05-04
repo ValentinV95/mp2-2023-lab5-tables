@@ -1,0 +1,26 @@
+# ninja log v5
+31	732	7365570633752215	Polynomials/CMakeFiles/polynoms.dir/polynomials.cpp.obj	d8adc11f868d14b4
+734	785	7365570634260564	Polynomials/polynoms.lib	e9e4f40f78dd08c5
+28	923	7365570635643962	Arithmetic/CMakeFiles/arithmetic.dir/arithmetic.cpp.obj	a7d14e6680e36648
+924	978	7365570636171715	Arithmetic/arithmetic.lib	83a1620c771c7b73
+19	1132	7365570637741458	test/CMakeFiles/tables_test.dir/Test_main.cpp.obj	a03eb6f099636d3f
+13	1154	7365570638004145	test/CMakeFiles/tables_test.dir/Hash_table_tests.cpp.obj	b765db18c701dca1
+16	1160	7365570638026089	test/CMakeFiles/tables_test.dir/Red–black_tree_tests.cpp.obj	b341a022737c3a2d
+22	1165	7365570638086066	test/CMakeFiles/tables_test.dir/Unordered_tables_tests.cpp.obj	1219cdd99e230ca1
+8	1197	7365570638401235	test/CMakeFiles/tables_test.dir/Arithmetic_tests.cpp.obj	2ba74b1ddf708d76
+25	2283	7365570649165941	Gtest/CMakeFiles/gtest.dir/gtest-all.cc.obj	8bb9bc82ff2073da
+2283	2367	7365570649910974	Gtest/gtest.lib	11fa8b83ffd24703
+2367	2963	7365570655599915	test/tables_test.exe	8d1df67e5eeeac7d
+8	27	0	clean	8c45b54705a541e8
+45	749	7365571169033199	Polynomials/CMakeFiles/polynoms.dir/polynomials.cpp.obj	d8adc11f868d14b4
+750	803	7365571169541988	Polynomials/polynoms.lib	e9e4f40f78dd08c5
+41	948	7365571171004250	Arithmetic/CMakeFiles/arithmetic.dir/arithmetic.cpp.obj	a7d14e6680e36648
+948	1004	7365571171522771	Arithmetic/arithmetic.lib	83a1620c771c7b73
+31	1127	7365571172767632	test/CMakeFiles/tables_test.dir/Test_main.cpp.obj	a03eb6f099636d3f
+24	1160	7365571173126099	test/CMakeFiles/tables_test.dir/Hash_table_tests.cpp.obj	b765db18c701dca1
+27	1160	7365571173156082	test/CMakeFiles/tables_test.dir/Red–black_tree_tests.cpp.obj	b341a022737c3a2d
+34	1171	7365571173278108	test/CMakeFiles/tables_test.dir/Unordered_tables_tests.cpp.obj	1219cdd99e230ca1
+17	1198	7365571173512739	test/CMakeFiles/tables_test.dir/Arithmetic_tests.cpp.obj	2ba74b1ddf708d76
+38	2375	7365571185205250	Gtest/CMakeFiles/gtest.dir/gtest-all.cc.obj	8bb9bc82ff2073da
+2375	2456	7365571185925727	Gtest/gtest.lib	11fa8b83ffd24703
+2456	2774	7365571188533264	test/tables_test.exe	8d1df67e5eeeac7d

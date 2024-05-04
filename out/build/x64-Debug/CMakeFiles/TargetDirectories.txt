@@ -1,0 +1,17 @@
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Sample/CMakeFiles/sample.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Sample/CMakeFiles/edit_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Sample/CMakeFiles/rebuild_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/test/CMakeFiles/tables_test.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/test/CMakeFiles/edit_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/test/CMakeFiles/rebuild_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Gtest/CMakeFiles/gtest.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Gtest/CMakeFiles/edit_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Gtest/CMakeFiles/rebuild_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Arithmetic/CMakeFiles/arithmetic.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Arithmetic/CMakeFiles/edit_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Arithmetic/CMakeFiles/rebuild_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Polynomials/CMakeFiles/polynoms.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Polynomials/CMakeFiles/edit_cache.dir
+C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug/Polynomials/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,176 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "Sample",
+					"jsonFile" : "directory-Sample-Debug-caed6328e2443eda527e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Sample",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "test",
+					"jsonFile" : "directory-test-Debug-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "Gtest",
+					"jsonFile" : "directory-Gtest-Debug-766c30d9ee2295e57ea4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Gtest",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "Arithmetic",
+					"jsonFile" : "directory-Arithmetic-Debug-1e82492c66d1a6aa40e6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Arithmetic",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Polynomials",
+					"jsonFile" : "directory-Polynomials-Debug-bca2fe2cf77d9fd365e6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Polynomials",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"name" : "tables",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 4,
+					"id" : "arithmetic::@349bd4a9151fae880bb7",
+					"jsonFile" : "target-arithmetic-Debug-a76995bd0920d8ff8f96.json",
+					"name" : "arithmetic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@52049acf8b3bed180166",
+					"jsonFile" : "target-gtest-Debug-4797cee50b82ff408891.json",
+					"name" : "gtest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "polynoms::@a38a0cb63ece6872d265",
+					"jsonFile" : "target-polynoms-Debug-ef99698c3996555ac8ff.json",
+					"name" : "polynoms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sample::@a96ea2003bd90aafd97e",
+					"jsonFile" : "target-sample-Debug-6f7ae5bd063df9df1011.json",
+					"name" : "sample",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "tables_test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-tables_test-Debug-634161f853ff0e094793.json",
+					"name" : "tables_test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main/out/build/x64-Debug",
+		"source" : "C:/Users/kovko/source/repos/mp2-2023-lab5-tables-main"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
