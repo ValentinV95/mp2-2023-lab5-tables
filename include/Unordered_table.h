@@ -44,22 +44,22 @@ private:
 		}
 	};
 	LR_pair* data;
-	size_t capañity, size;
+	size_t capacity, size;
 	void resize()
 	{
-		LR_pair* tmp = new LR_pair[capañity *= 2]();
+		LR_pair* tmp = new LR_pair[capacity *= 2]();
 		std::copy(data + 0, data + size, tmp);
 		delete[]data;
 		data = tmp;
 	}
 public:
-	LR_UnordTable(size_t cap = 10) : capañity(cap), size(0)
+	LR_UnordTable(size_t cap = 10) : capacity(cap), size(0)
 	{
-		data = new LR_pair[capañity]();
+		data = new LR_pair[capacity]();
 	}
 	void push(const LR_pair& pair)
 	{
-		if (size == capañity)
+		if (size == capacity)
 			resize();
 		data[size++] = pair;
 	}
@@ -97,7 +97,7 @@ public:
 	}
 	void push(const L& l_d, const R& r_d)
 	{
-		if (size == capañity)
+		if (size == capacity)
 			resize();
 		data[size].l_data = new L(l_d);
 		data[size++].r_data = new R(r_d);
